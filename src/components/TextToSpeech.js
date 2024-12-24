@@ -68,18 +68,20 @@ const TextToSpeech = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
-      <h1 className="text-4xl font-bold mb-6">Text to Speech Converter</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white p-4">
+      <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
+        Text to Speech Converter
+      </h1>
       <textarea
         placeholder="Enter text here..."
         value={text}
         onChange={(e) => setText(e.target.value)}
-        className="w-2/3 h-1/3 p-4 rounded-lg text-black border-2 border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-600 overflow-y-auto resize-none"
+        className="w-full sm:w-2/3 h-40 p-4 rounded-lg text-black border-2 border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-600 overflow-y-auto resize-none"
       />
       <select
         value={selectedVoice}
         onChange={(e) => setSelectedVoice(e.target.value)}
-        className="mt-4 p-3 rounded-lg bg-white text-black w-2/3"
+        className="mt-4 p-3 rounded-lg bg-white text-black w-full sm:w-2/3"
       >
         {voices.map((voice) => (
           <option key={voice.name} value={voice.name}>
@@ -87,7 +89,7 @@ const TextToSpeech = () => {
           </option>
         ))}
       </select>
-      <div className="mt-6 flex gap-4">
+      <div className="mt-6 flex flex-wrap gap-4 justify-center">
         <button
           onClick={handleSpeak}
           disabled={isSpeaking}
